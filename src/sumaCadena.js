@@ -6,4 +6,8 @@ function sumaCadenas(cadena){
     return parseInt(cadena);
 }
 
-export default sumaCadenas;
+function mayor1000(numero){
+    return numero > 1000; 
+}
+
+export {sumaCadenas, mayor1000};
