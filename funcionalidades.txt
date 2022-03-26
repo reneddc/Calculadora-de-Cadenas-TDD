@@ -1,4 +1,4 @@
-1. Si ingreso la cadena '0' debería devolver el valor de 0
+1. Si ingreso la cadena '' debería devolver el valor de 0
 2. Si ingreso la cadena '2' debería devolver el valor de 2
 3. Si ingreso la cadena '1001' debería devolver el valor de 0
 4. Si ingreso la cadena '0,2' debería devolver el tipo de separador ',' (Los separadores permitidos hast este momento)
