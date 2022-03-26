@@ -9,7 +9,7 @@ describe("SUMA DE CADENAS", () => {
     });
 
     it("2. Si ingreso la cadena '2' debería devolver el valor de 2", () => {
-        expect(sumaCadena.sumaCadenas('2')).toEqual(2);
+        expect(sumaCadena.sumaCadenas('2')).toEqual([2]);
     });
 
     it("3. Si ingreso la cadena '1001' debería devolver el valor de 'true' (si es mayor a 1000)", () => {
@@ -17,15 +17,19 @@ describe("SUMA DE CADENAS", () => {
     });
 
     it("4. Si ingreso la cadena '1001' debería devolver el valor de 0", () => {
-        expect(sumaCadena.sumaCadenas('1001')).toEqual(0);
+        expect(sumaCadena.sumaCadenas('1001')).toEqual([0]);
     });
 
     it("5. Si pregunto los separadores momentáneos, debería devolver el tipo de separador <,>", () => {
         expect(sumaCadena.aniadirSeparadores()).toEqual(',');
     });
 
-    it("6. Si ingreso la cadena '4,2' debería devolver el 4", () => {
-        expect(sumaCadena.sumaCadenas('4,2')).toEqual(4);
+    it("6. Si ingreso la cadena '4,x' debería devolver el 4", () => {
+        expect(sumaCadena.sumaCadenas('4,x')).toEqual([4]);
+    });
+
+    it("7. Si ingreso la cadena '4,2' debería devolver el 4 y el 2", () => {
+        expect(sumaCadena.sumaCadenas('4,2')).toEqual([4,2]);
     });
 
 });
