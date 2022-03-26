@@ -1,12 +1,13 @@
 1. Si ingreso la cadena '' debería devolver el valor de 0
 2. Si ingreso la cadena '2' debería devolver el valor de 2
-3. Si ingreso la cadena '1001' debería devolver el valor de 0
-4. Si ingreso la cadena '0,2' debería devolver el tipo de separador ',' (Los separadores permitidos hast este momento)
-5. Si ingreso la cadena '0,2' debería devolver el 0 y el 2
-6. Si ingreso la cadena '0,2,3' debería devolver el 0, 2 y 3
-7. Si ingreso la cadena '0-2' debería devolver el tipo de separador ',' y '-' (Los separadores permitidos hasta este momento)
-8. Si ingreso la cadena '0-2-3...' debería devolver el 0, 2 y 3
-9. Si ingreso la cadena '0-2,3...' debería devolver el 0, 2 y 3
+3. Si ingreso la cadena '1001' debería devolver el valor de 'true' (si es mayor a 1000)
+4. Si ingreso la cadena '1001' debería devolver el valor de 0
+5. Si ingreso la cadena '0,2' debería devolver el tipo de separador ',' (Los separadores permitidos hast este momento)
+6. Si ingreso la cadena '0,2' debería devolver el 0 y el 2
+7. Si ingreso la cadena '0,2,3' debería devolver el 0, 2 y 3
+8. Si ingreso la cadena '0-2' debería devolver el tipo de separador ',' y '-' (Los separadores permitidos hasta este momento)
+9. Si ingreso la cadena '0-2-3...' debería devolver el 0, 2 y 3
+10. Si ingreso la cadena '0-2,3...' debería devolver el 0, 2 y 3
 10. Si ingreso la cadena '//[;] 6;7;4' debería devolver el tipo de separador ';'(Función que sólo se dedique a encontrar el separador elegido, sólo un caracter)
 11. Si ingreso la cadena '//[;] 6;7;4' debería devolver el tipo de separador ';', ',' y '-' (Los separadores permitidos hasta este momento)
 12. Si ingreso la cadena '//[;] 6;7-4' debería devolver el 6, 7 y 4

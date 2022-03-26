@@ -1,13 +1,15 @@
-function sumaCadenas(cadena){
-    if(cadena.length == 0)
-    {
-        cadena = 0;
+class SumaCadena{
+    sumaCadenas(cadena){
+        if(cadena.length == 0 || this.mayor1000(cadena))
+        {
+            cadena = 0;
+        }
+        return parseInt(cadena);
     }
-    return parseInt(cadena);
+    
+    mayor1000(numero){
+        return numero > 1000; 
+    }
 }
 
-function mayor1000(numero){
-    return numero > 1000; 
-}
-
-export {sumaCadenas, mayor1000};
+export default SumaCadena;
