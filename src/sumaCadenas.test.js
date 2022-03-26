@@ -24,6 +24,10 @@ describe("SUMA DE CADENAS", () => {
         expect(sumaCadena.aniadirSeparadores()).toEqual(',');
     });
 
+    it("6. Si ingreso la cadena '4,2' debería devolver el 4", () => {
+        expect(sumaCadena.sumaCadenas('4,2')).toEqual(4);
+    });
+
 });
 
 

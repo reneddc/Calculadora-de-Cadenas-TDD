@@ -5,11 +5,20 @@ class SumaCadena{
         this.listaNumeros = [];
     }
 
-    sumaCadenas(cadena){
-        if(cadena.length == 0 || this.mayor1000(cadena)){
-            cadena = 0;
+    separarNumeros(cadena){
+        let numero = 0;
+        if(cadena.length != 0){
+            cadena = cadena.match(/(\d+)/);//regular expressions
+            numero = parseInt(cadena[1]);
+            if(this.mayor1000(numero)){
+                numero = 0;
+            }
         }
-        return parseInt(cadena);
+        return numero;
+    }
+
+    sumaCadenas(cadena){
+        return this.separarNumeros(cadena);
     }
     
     mayor1000(numero){
