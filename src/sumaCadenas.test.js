@@ -20,6 +20,10 @@ describe("SUMA DE CADENAS", () => {
         expect(sumaCadena.sumaCadenas('1001')).toEqual(0);
     });
 
+    it("5. Si pregunto los separadores moemntáneos, Debería devolver el tipo de separador <,>", () => {
+        expect(sumaCadena.aniadirSeparadores()).toEqual(',');
+    });
+
 });
 
 
