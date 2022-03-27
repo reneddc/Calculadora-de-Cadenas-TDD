@@ -56,7 +56,8 @@ class SumaCadena{
     }
 
     sumaCadenas(cadena){
-        this.obtenerNuevoSeparador(cadena);
+        this.agregarSeparador(cadena);
+        console.log(this.separarNumeros(cadena));
         return this.separarNumeros(cadena);
     }
     
