@@ -24,14 +24,21 @@ describe("SUMA DE CADENAS", () => {
         expect(sumaCadena.aniadirSeparadores()).toEqual(',');
     });
 
-    it("6. Si ingreso la cadena '4,x' debería devolver el 4", () => {
-        expect(sumaCadena.sumaCadenas('4,x')).toEqual([4]);
+    it("6. Si ingreso la cadena '4,2' debería devolver el 4", () => {
+        expect(sumaCadena.capturarPrimerNumero('4,2')).toEqual(4);
     });
 
     it("7. Si ingreso la cadena '4,2' debería devolver el 4 y el 2", () => {
         expect(sumaCadena.sumaCadenas('4,2')).toEqual([4,2]);
     });
 
+    it("8. Si ingreso la cadena '0,2,5' debería devolver el 0, 2 y 5 (validar los separadores)", () => {
+        expect(sumaCadena.sumaCadenas('0,2,5')).toEqual([0,2,5]);
+    });
+
+    it("8. Si ingreso la cadena '0,2,3' debería devolver el 0, 2 y 3 (validar los separadores)", () => {
+        expect(sumaCadena.sumaCadenas('4-2,5')).toEqual([4,5]);
+    });
 });
 
 
