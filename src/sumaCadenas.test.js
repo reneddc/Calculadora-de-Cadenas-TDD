@@ -52,6 +52,11 @@ describe("SUMA DE CADENAS", () => {
         expect(sumaCadena.obtenerNuevoSeparador('//[;] 6;7;4')).toEqual(';');
     });
 
+    it("12. Si ingreso la cadena '//[;] 6;7;4' debería devolver el tipo de separador <;> <,> <->", () => {
+        let nuevoSeparador = sumaCadena.obtenerNuevoSeparador('//[;] 6;7;4');
+        expect(sumaCadena.agregarSeparador(nuevoSeparador)).toEqual([',','-',';']);
+    });
+
 });
 
 
