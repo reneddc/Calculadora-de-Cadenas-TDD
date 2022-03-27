@@ -36,13 +36,14 @@ describe("SUMA DE CADENAS", () => {
         expect(sumaCadena.sumaCadenas('0,2,5')).toEqual([0,2,5]);
     });
 
-    it("8. Si ingreso la cadena '0,2,3' debería devolver el 0, 2 y 3 (validar los separadores)", () => {
-        expect(sumaCadena.sumaCadenas('4-2,5')).toEqual([4,5]);
-    });
-
-    it("9. Si ingreso la cadena '0-2' debería devolver el tipo de separador <,> y <->", () => {
+    it("9. Si pregunto los separadores momentáneos, debería devolver el tipo de separador <,> y <->", () => {
         expect(sumaCadena.mostrarSeparador(1)).toEqual('-');
     });
+
+    it("10. Si ingreso la cadena '0-2-3...' debería devolver el 0, 2 y 3", () => {
+        expect(sumaCadena.sumaCadenas('0-2-3-4-10-15-20')).toEqual([0,2,3,4,10,15,20]);
+    });
+
 });
 
 

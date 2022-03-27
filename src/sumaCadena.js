@@ -23,15 +23,25 @@ class SumaCadena{
         return numero;
     }
 
+    ejercerSeparadores(){
+        let separadores = "";
+        for(var i = 0; i < this.listaSeparadores.length; i++){
+            separadores = separadores + this.mostrarSeparador(i); 
+        }
+        let regex = '['+separadores+']+(\\d+)';
+        return regex;
+    }
+
     separarNumeros(cadena){
         let numero = 0;
-        let regExp = /[,]+(\d+)/g;
+        let regExpCad = this.ejercerSeparadores();
+        var re = new RegExp(regExpCad,"g");   
         let listaNumeros = [];
         let primerNumero;
         if(cadena.length != 0){
             primerNumero = this.capturarPrimerNumero(cadena);
             listaNumeros.push(primerNumero);
-            let lista = [...cadena.matchAll(regExp)];
+            let lista = [...cadena.matchAll(re)];
             for(var i = 0; i < lista.length; i++){
                 numero = this.capturarOtrosNumero(lista, i);
                 listaNumeros.push(numero);
@@ -49,13 +59,12 @@ class SumaCadena{
         return numero > 1000; 
     }
 
-    aniadirSeparadores(separador){
+    agregarSeparador(separador){
         this.listaSeparadores.push(separador);
         return this.listaSeparadores;
     }
 
     mostrarSeparador(pos){
-        console.log(this.listaSeparadores[pos]);
         return this.listaSeparadores[pos];
     }
 }
