@@ -81,6 +81,14 @@ class SumaCadena{
         separador = [...cadena.matchAll(re)];
         return separador[0][1];
     }
+
+    obtenerSegundoNuevoSeparador(cadena){
+        let separador = '';
+        let regExpCad = '\\]\\[(.*)\\]';
+        var re = new RegExp(regExpCad,"g"); 
+        separador = [...cadena.matchAll(re)];
+        return separador[0][1];
+    }
 }
 
 export default SumaCadena;

@@ -15,7 +15,7 @@
 14. Si ingreso la cadena '//[+++] 6+++7+++4' debería devolver el tipo de separador '+++'(Función que sólo se dedique a encontrar el separador elegido, más de un caracter)
 15. Si ingreso la cadena '//[+++] 6+++7-4' debería devolver el tipo de separador '+++', ',' y '-' (Los separadores permitidos hasta este momento)
 16. Si ingreso la cadena '//[+++] 6+++7-4' debería devolver el 6, 7 y 4
-17. Si ingreso la cadena '//[+++][;] 6+++7;4' debería devolver el tipo de separador '+++' y ';'(Función que sólo se dedique a encontrar los separadores específicos)
+17. Si ingreso la cadena '//[+++][;] 6+++7;4' debería devolver el tipo de separador ';'(Función que sólo se dedique a encontrar el segundo en caso de haber)
 18. Si ingreso la cadena '//[+++][;] 6+++7;4' debería devolver el tipo de separador '+++', ';', ',' y '-' (Los separadores permitidos hasta este momento)
 19. Si ingreso la cadena '//[+++][;] 6+++7;4' debería devolver el 6, 7 y 4
 20. Si ingreso la cadena '//[+++][;] 6+++7;4' debería devolver la suma de 6+7+4 = 17 
