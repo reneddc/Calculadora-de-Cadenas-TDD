@@ -1,8 +1,7 @@
 class SumaCadena{
 
     constructor(){
-        this.listaSeparadores = [];
-        //this.listaNumeros = [];
+        this.listaSeparadores = [',', '-'];
     }
 
     capturarPrimerNumero(cadena){ //debí crear este método desde el punto 6 más o menos, recién en el 8 me di cuenta por el regex que apliqué, pensé que podía capturar todo de una, pero no
@@ -50,9 +49,14 @@ class SumaCadena{
         return numero > 1000; 
     }
 
-    aniadirSeparadores(){
-        this.listaSeparadores.push(',');
-        return this.listaSeparadores[0];
+    aniadirSeparadores(separador){
+        this.listaSeparadores.push(separador);
+        return this.listaSeparadores;
+    }
+
+    mostrarSeparador(pos){
+        console.log(this.listaSeparadores[pos]);
+        return this.listaSeparadores[pos];
     }
 }
 
