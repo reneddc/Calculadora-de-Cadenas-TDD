@@ -61,10 +61,15 @@ describe("SUMA DE CADENAS", () => {
         expect(sumaCadena.sumaCadenas('//[;] 6;7,4;8;9;0-1-3')).toEqual([6,7,4,8,9,0,1,3]);
     });
 
+
     it("14. Si ingreso la cadena '//[+++] 6+++7+++4' debería devolver el tipo de separador '+++'", () => {
+        expect(sumaCadena.obtenerNuevoSeparador('//[+++] 6+++7+++4')).toEqual('+++');
+    });
+
+    /*it("14. Si ingreso la cadena '//[+++] 6+++7+++4' debería devolver el tipo de separador '+++'", () => {
         let nuevoSeparador = sumaCadena.obtenerNuevoSeparador('//[+++] 6+++7+++4');
         expect(sumaCadena.agregarSeparador(nuevoSeparador)).toEqual([',','-',';','+++']);
-    });
+    });*/
 
 });
 
