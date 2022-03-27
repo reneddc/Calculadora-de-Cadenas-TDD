@@ -25,8 +25,8 @@ class SumaCadena{
 
     ejercerSeparadores(){
         let separadores = "";
-        for(var i = 0; i < this.listaSeparadores.length; i++){
-            separadores = separadores + this.mostrarSeparador(i); 
+        for(var i = this.listaSeparadores.length-1; i >=0; i--){
+            separadores = separadores + '\\' + this.mostrarSeparador(i); 
         }
         let regex = '['+separadores+']+(\\d+)';
         return regex;

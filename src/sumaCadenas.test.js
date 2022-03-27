@@ -57,6 +57,10 @@ describe("SUMA DE CADENAS", () => {
         expect(sumaCadena.agregarSeparador(nuevoSeparador)).toEqual([',','-',';']);
     });
 
+    it("13. Si ingreso la cadena '//[;] 6;7-4' debería devolver el 6, 7 y 4", () => {
+        expect(sumaCadena.sumaCadenas('//[;] 6;7,4;8;9;0-1-3')).toEqual([6,7,4,8,9,0,1,3]);
+    });
+
 });
 
 
