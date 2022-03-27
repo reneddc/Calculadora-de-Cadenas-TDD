@@ -16,7 +16,7 @@ class SumaCadena{
         this.listaNumeros.push(primerNumero);
     }
 
-    capturarOtrosNumero(lista, pos){
+    capturarOtrosNumero(lista, pos){ //captura los números uno por uno despúes del primero 4,2,3 -> 2 y después 3 porque 4 es el primero
         let numero;
         numero = parseInt(lista[pos][1])
         if(this.mayor1000(numero)){
@@ -27,7 +27,7 @@ class SumaCadena{
 
     ejercerSeparadores(pos, cadena){
         let separador = `\\${this.listaSeparadores[pos]}`;
-        if(this.listaSeparadores[pos].length > 1){
+        if(this.listaSeparadores[pos].length > 1){          //para separadores con más de un caracter y evitar problemas con caracteres especiales del regex
             separador = "";
             for(var i = 0; i < this.listaSeparadores[pos].length; i++){
                 separador = separador + `\\${this.listaSeparadores[pos][i]}`;
@@ -35,11 +35,11 @@ class SumaCadena{
         }
         let regExpCad = `${separador}(\\d+)`;
         var re = new RegExp(regExpCad,"g");
-        let lista = [...cadena.matchAll(re)];
+        let lista = [...cadena.matchAll(re)];//2. una vez que sacamos el número del separador dado por pos lo añadimos a la lista
         for(var i = 0; i < lista.length; i++){
             this.listaNumeros.push(this.capturarOtrosNumero(lista, i));
         }
-        cadena = cadena.replace(re, "");//para evitar réplicas de datos
+        cadena = cadena.replace(re, "");//3. Borramos el número que ya se añadió para evitar que se repliquen después con otros separadores
         return cadena;
     }
 
@@ -48,17 +48,25 @@ class SumaCadena{
         if(cadena.length != 0){
             this.capturarPrimerNumero(cadena);
             for(var i = 0; i < this.listaSeparadores.length; i++){
-                cadena = this.ejercerSeparadores(i, cadena);
+                cadena = this.ejercerSeparadores(i, cadena);//1. sacamos los números de acuerdo al separador
             }
             return this.listaNumeros.sort();
         }
         return numero;
     }
 
-    sumaCadenas(cadena){
+    listaNumerosCadena(cadena){
         this.agregarSeparador(cadena);
-        console.log(this.separarNumeros(cadena));
         return this.separarNumeros(cadena);
+    }
+
+    sumaCadena(cadena){
+        let total = 0;
+        this.listaNumerosCadena(cadena);
+        for(var i = 0; i<this.listaNumeros.length; i++){
+            total = total + this.listaNumeros[i];
+        }
+        return total;
     }
     
     mayor1000(numero){
