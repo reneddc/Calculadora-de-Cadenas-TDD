@@ -54,8 +54,7 @@ describe("SUMA DE CADENAS", () => {
     });
 
     it("12. Si ingreso la cadena '//[;] 6;7;4' debería devolver el tipo de separador <;> <,> <->", () => {
-        let nuevoSeparador = sumaCadena.obtenerNuevoSeparador('//[;] 6;7;4');
-        expect(sumaCadena.agregarSeparador(nuevoSeparador)).toEqual([',','-',';']);
+        expect(sumaCadena.agregarSeparador('//[;] 6;7;4')).toEqual([',','-',';']);
     });
 
     it("13. Si ingreso la cadena '//[;] 6;7-4' debería devolver el 6, 7 y 4", () => {
@@ -67,17 +66,20 @@ describe("SUMA DE CADENAS", () => {
         expect(sumaCadena.obtenerNuevoSeparador('//[+++] 6+++7+++4')).toEqual('+++');
     });
 
-    it("15. Si ingreso la cadena '//[+++] 6+++7+++4' debería devolver el tipo de separador '+++'", () => {
-        let nuevoSeparador = sumaCadena.obtenerNuevoSeparador('//[++-] 6+++7+++4');
-        expect(sumaCadena.agregarSeparador(nuevoSeparador)).toEqual([',','-',';','++-']);
+    it("15. Si ingreso la cadena '//[+++] 6+++7-4' debería devolver el tipo de separador '++-', ',' y '-'", () => {
+        expect(sumaCadena.agregarSeparador('//[++-] 6+++7+++4')).toEqual([',','-',';','++-']);
     });
 
     it("16. Si ingreso la cadena '//[+++] 6+++7,4;8;9;0+++1-3' debería devolver el 6,7,4,8,9,0,1,3", () => {
         expect(sumaCadena.sumaCadenas('//[++-] 6++-7,4+8;9;0++-1-3')).toEqual([6,7,4,9,0,1,3].sort());
     });
 
-    it("17. Si ingreso la cadena '//[++-][.] 6+++7;4' debería devolver el tipo de separador ';'", () => {
-        expect(sumaCadena.obtenerSegundoNuevoSeparador('//[++-][x] 6++-7x4')).toEqual('x');
+    it("17. Si ingreso la cadena '//[++-][x] 6+++7;4' debería devolver el tipo de separador 'x'", () => {
+        expect(sumaCadena.obtenerSegundoNuevoSeparador('//[++-][x] 6++-7x4')[0]).toEqual('x');
+    });
+
+    it("18. Si ingreso la cadena '//[_][x] 6+++7;4' debería devolver el tipo de separador '+++', ';', ',' y '-'", () => {
+        expect(sumaCadena.agregarSeparador('//[_][*] 6_7x4')).toEqual([',','-',';','++-','*','_']);
     });
 });
 

@@ -32,7 +32,6 @@ class SumaCadena{
             for(var i = 0; i < this.listaSeparadores[pos].length; i++){
                 separador = separador + `\\${this.listaSeparadores[pos][i]}`;
             }
-            console.log(separador);
         }
         let regExpCad = `${separador}(\\d+)`;
         var re = new RegExp(regExpCad,"g");
@@ -51,13 +50,13 @@ class SumaCadena{
             for(var i = 0; i < this.listaSeparadores.length; i++){
                 cadena = this.ejercerSeparadores(i, cadena);
             }
-            console.log(this.listaNumeros);
             return this.listaNumeros.sort();
         }
         return numero;
     }
 
     sumaCadenas(cadena){
+        this.obtenerNuevoSeparador(cadena);
         return this.separarNumeros(cadena);
     }
     
@@ -65,8 +64,17 @@ class SumaCadena{
         return numero > 1000; 
     }
 
-    agregarSeparador(separador){
-        this.listaSeparadores.push(separador);
+    agregarSeparador(cadena){
+        let nuevaCadena = cadena;
+        let segundoSeparador = this.obtenerSegundoNuevoSeparador(cadena);
+        if (segundoSeparador[0]){
+            this.listaSeparadores.push(segundoSeparador[0]);
+            nuevaCadena = segundoSeparador[1];
+        }
+        let separador = this.obtenerNuevoSeparador(nuevaCadena);
+        if(separador){
+            this.listaSeparadores.push(separador);
+        }
         return this.listaSeparadores;
     }
 
@@ -75,10 +83,13 @@ class SumaCadena{
     }
 
     obtenerNuevoSeparador(cadena){
-        let separador = '';
+        let separador;
         let regExpCad = '//\\[(.*)\\]';
         var re = new RegExp(regExpCad,"g"); 
         separador = [...cadena.matchAll(re)];
+        if(separador.length == 0){
+            return false;
+        }
         return separador[0][1];
     }
 
@@ -87,7 +98,12 @@ class SumaCadena{
         let regExpCad = '\\]\\[(.*)\\]';
         var re = new RegExp(regExpCad,"g"); 
         separador = [...cadena.matchAll(re)];
-        return separador[0][1];
+        if(separador.length == 0){
+            return false;
+        }
+        let segundoSeparador = separador[0][1];
+        cadena = cadena.replace(re, "]")//elimina la parte que encontró para que no hayan problemas después
+        return [segundoSeparador, cadena];
     }
 }
 
