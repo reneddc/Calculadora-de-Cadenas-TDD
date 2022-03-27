@@ -70,7 +70,7 @@ class SumaCadena{
 
     obtenerNuevoSeparador(cadena){
         let separador = '';
-        let regExpCad = '//\\[(.)\\]';
+        let regExpCad = '//\\[(.*)\\]';
         var re = new RegExp(regExpCad,"g"); 
         separador = [...cadena.matchAll(re)];
         return separador[0][1];
