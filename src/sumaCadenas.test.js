@@ -44,6 +44,10 @@ describe("SUMA DE CADENAS", () => {
         expect(sumaCadena.sumaCadenas('0-2-3-4-10-15-20')).toEqual([0,2,3,4,10,15,20]);
     });
 
+    it("10. Si ingreso la cadena '0-2,3...' debería devolver el 0, 2 y 3", () => {
+        expect(sumaCadena.sumaCadenas('0-2,3-4,10,15-20')).toEqual([0,2,3,4,10,15,20]);
+    });
+
 });
 
 
