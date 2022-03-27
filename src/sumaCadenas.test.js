@@ -24,12 +24,13 @@ describe("SUMA DE CADENAS", () => {
         expect(sumaCadena.mostrarSeparador(0)).toEqual(',');
     });
 
-    it("6. Si ingreso la cadena '4,2' debería devolver el 4", () => {
-        expect(sumaCadena.capturarPrimerNumero('4,2')).toEqual(4);
+    it("6. Si ingreso la cadena '5,8' debería devolver el 5", () => {
+        sumaCadena.capturarPrimerNumero('5,8')
+        expect(sumaCadena.listaNumeros[0]).toEqual(5);
     });
 
     it("7. Si ingreso la cadena '4,2' debería devolver el 4 y el 2", () => {
-        expect(sumaCadena.sumaCadenas('4,2')).toEqual([4,2]);
+        expect(sumaCadena.sumaCadenas('4,2')).toEqual([4,2].sort());
     });
 
     it("8. Si ingreso la cadena '0,2,5' debería devolver el 0, 2 y 5 (validar los separadores)", () => {
@@ -41,11 +42,11 @@ describe("SUMA DE CADENAS", () => {
     });
 
     it("10. Si ingreso la cadena '0-2-3...' debería devolver el 0, 2 y 3", () => {
-        expect(sumaCadena.sumaCadenas('0-2-3-4-10-15-20')).toEqual([0,2,3,4,10,15,20]);
+        expect(sumaCadena.sumaCadenas('0-2-3-4-10-15-20')).toEqual([0,2,3,4,10,15,20].sort());
     });
 
     it("10. Si ingreso la cadena '0-2,3...' debería devolver el 0, 2 y 3", () => {
-        expect(sumaCadena.sumaCadenas('0-2,3-4,10,15-20')).toEqual([0,2,3,4,10,15,20]);
+        expect(sumaCadena.sumaCadenas('0-2,3-4,10,15-20')).toEqual([0,2,3,4,10,15,20].sort());
     });
 
     it("11. Si ingreso la cadena '//[;] 6;7;4' debería devolver el tipo de separador ';'", () => {
@@ -58,7 +59,7 @@ describe("SUMA DE CADENAS", () => {
     });
 
     it("13. Si ingreso la cadena '//[;] 6;7-4' debería devolver el 6, 7 y 4", () => {
-        expect(sumaCadena.sumaCadenas('//[;] 6;7,4;8;9;0-1-3')).toEqual([6,7,4,8,9,0,1,3]);
+        expect(sumaCadena.sumaCadenas('//[;] 6;7,4;8;9;0-1-3')).toEqual([6,7,4,8,9,0,1,3].sort());
     });
 
 
@@ -67,8 +68,12 @@ describe("SUMA DE CADENAS", () => {
     });
 
     it("15. Si ingreso la cadena '//[+++] 6+++7+++4' debería devolver el tipo de separador '+++'", () => {
-        let nuevoSeparador = sumaCadena.obtenerNuevoSeparador('//[+++] 6+++7+++4');
-        expect(sumaCadena.agregarSeparador(nuevoSeparador)).toEqual([',','-',';','+++']);
+        let nuevoSeparador = sumaCadena.obtenerNuevoSeparador('//[++-] 6+++7+++4');
+        expect(sumaCadena.agregarSeparador(nuevoSeparador)).toEqual([',','-',';','++-']);
+    });
+
+    it("16. Si ingreso la cadena '//[+++] 6+++7,4;8;9;0+++1-3' debería devolver el 6,7,4,8,9,0,1,3", () => {
+        expect(sumaCadena.sumaCadenas('//[++-] 6++-7,4+8;9;0++-1-3')).toEqual([6,7,4,9,0,1,3].sort());
     });
 
 });
