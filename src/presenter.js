@@ -10,7 +10,7 @@ form.addEventListener("submit", (event) => {
   const sumaCadena = new SumaCadena();
 
   let cadena = cadenaInput.value;
-  const total = sumaCadena.sumaCadena(cadena);
+  const total = sumaCadena.sumarCadena(cadena);
 
   div.innerHTML = "<p>Total= " + total + "</p>";
 });

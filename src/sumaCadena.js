@@ -10,7 +10,7 @@ class SumaCadena{
         this.listaNumeros = [];
         let primerNumero;
         primerNumero = parseInt(cadena.match(regExpFirst)[0]);
-        if(this.mayor1000(primerNumero)){
+        if(this.esMayor1000(primerNumero)){
             primerNumero = 0;
         }
         this.listaNumeros.push(primerNumero);
@@ -19,7 +19,7 @@ class SumaCadena{
     capturarOtrosNumero(lista, pos){ //captura los números uno por uno despúes del primero 4,2,3 -> 2 y después 3 porque 4 es el primero
         let numero;
         numero = parseInt(lista[pos][1])
-        if(this.mayor1000(numero)){
+        if(this.esMayor1000(numero)){
             numero = 0;
         }
         return numero;
@@ -55,21 +55,21 @@ class SumaCadena{
         return numero;
     }
 
-    listaNumerosCadena(cadena){
+    obtenerListaNumeros(cadena){
         this.agregarSeparador(cadena);
         return this.separarNumeros(cadena);
     }
 
-    sumaCadena(cadena){
+    sumarCadena(cadena){
         let total = 0;
-        this.listaNumerosCadena(cadena);
+        this.obtenerListaNumeros(cadena);
         for(var i = 0; i<this.listaNumeros.length; i++){
             total = total + this.listaNumeros[i];
         }
         return total;
     }
     
-    mayor1000(numero){
+    esMayor1000(numero){
         return numero > 1000; 
     }
 
@@ -99,6 +99,10 @@ class SumaCadena{
         if(separador.length == 0){
             return false;
         }
+        return this.obtenerPrimerSeparador(separador);
+    }
+
+    obtenerPrimerSeparador(separador){
         return separador[0][1];
     }
 
@@ -111,9 +115,16 @@ class SumaCadena{
             return false;
         }
         let segundoSeparador = separador[0][1];
-        cadena = cadena.replace(re, "]")//elimina la parte que encontró para que no hayan problemas después
+        cadena = this.quitarSegundoSeparador(cadena, re);
         return [segundoSeparador, cadena];
     }
+
+
+    
+    quitarSegundoSeparador(cadena, re){
+        return cadena.replace(re, "]");
+    }
+
 }
 
 export default SumaCadena;
